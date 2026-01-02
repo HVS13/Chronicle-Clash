@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="cc-print-actions" role="group" aria-label="Page export actions">
+    <div class="cc-export-menu" data-cc-export-menu>
+      <button
+        class="cc-action-button cc-export-toggle md-button"
+        type="button"
+        data-cc-export-toggle
+        aria-haspopup="true"
+        aria-expanded="false"
+        aria-controls="cc-export-dropdown"
+        aria-label="Export options"
+        title="Export options"
+      >
+        <span class="md-icon" aria-hidden="true">
+          {% include ".icons/material/download.svg" %}
+        </span>
+        <span class="md-icon cc-export-caret" aria-hidden="true">
+          {% include ".icons/material/chevron-down.svg" %}
+        </span>
+      </button>
+      <div
+        class="cc-export-dropdown"
+        id="cc-export-dropdown"
+        role="menu"
+        aria-label="Export options"
+        aria-hidden="true"
+      >
+        <div class="cc-export-section" role="presentation">
+          <div class="cc-export-section__title">This page</div>
+          <button
+            class="cc-export-item"
+            type="button"
+            role="menuitem"
+            data-action="print"
+            data-scope="page"
+            aria-label="Export this page as PDF"
+          >
+            PDF
+          </button>
+          <button
+            class="cc-export-item"
+            type="button"
+            role="menuitem"
+            data-action="md"
+            data-scope="page"
+            aria-label="Export this page as Markdown"
+          >
+            Markdown
+          </button>
+          <button
+            class="cc-export-item"
+            type="button"
+            role="menuitem"
+            data-action="txt"
+            data-scope="page"
+            aria-label="Export this page as plain text"
+          >
+            Text
+          </button>
+        </div>
+        <div class="cc-export-section" role="presentation">
+          <div class="cc-export-section__title">All pages</div>
+          <button
+            class="cc-export-item"
+            type="button"
+            role="menuitem"
+            data-action="zip"
+            data-scope="site"
+            aria-label="Download all pages as a ZIP archive (HTML, Markdown, Text)"
+          >
+            ZIP (HTML/MD/TXT)
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ super() }}
+{% endblock %}
