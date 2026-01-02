@@ -1,0 +1,135 @@
+# Template Character
+
+<div class="character-header">
+  <div class="character-image">
+    <img src="../../assets/characters/placeholder.svg" alt="Template character portrait placeholder" loading="lazy" decoding="async" />
+    <p class="image-note">Character artwork placeholder.</p>
+  </div>
+  <div class="character-details">
+    <div class="character-meta">
+      <p><strong>Name:</strong> Character Name</p>
+      <p><strong>Version:</strong> Version Label</p>
+      <p><strong>Origin:</strong> Origin Source</p>
+      <p><strong>Roles:</strong> <a class="cc-role-link" data-role="role-<slug>" href="#">Role Name</a>, <a class="cc-role-link" data-role="role-<slug>" href="#">Role Name</a></p>
+      <p><strong>Difficulty:</strong> Low / Medium / High</p>
+      <p><strong>Gameplan:</strong> One paragraph describing how the character plays.</p>
+    </div>
+  </div>
+</div>
+
+## Innates
+<div class="card-block">
+  <p class="card-block__title">Innate Name</p>
+  <p>Concise innate effect description.</p>
+</div>
+
+## Keywords
+
+<div class="cc-entry cc-entry--compact keyword-entry">
+  <p class="cc-entry__title"><a class="cc-keyword-link" data-keyword="keyword-<slug-1>" href="#">Keyword 1</a></p>
+  <p class="cc-entry__meta">Keyword 1 details or limits.</p>
+</div>
+
+<div class="cc-entry cc-entry--compact keyword-entry">
+  <p class="cc-entry__title"><a class="cc-keyword-link" data-keyword="keyword-<slug-2>" href="#">Keyword 2</a></p>
+  <p class="cc-entry__meta">Keyword 2 details or limits.</p>
+</div>
+
+## Status Effects
+
+<div class="cc-entry cc-entry--compact status-entry">
+  <p class="cc-entry__title"><a class="cc-status-link" data-status="status-<slug>" href="#">Status name</a></p>
+  <p class="cc-entry__meta">Optional per-character notes (limits, triggers, etc.).</p>
+</div>
+
+## Terminology
+
+<div class="cc-entry cc-entry--compact">
+  <p class="cc-entry__title"><a class="cc-term-link" data-term="term-<slug>" href="#">Term</a></p>
+</div>
+
+## Cards
+
+### Card 1: Card Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Basic, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>
+
+### Card 2: Card Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Basic, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>
+
+### Card 3: Card Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Technique, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>
+
+### Card 4: Card Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Technique, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>
+
+### Card 5: Card Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Technique, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>
+
+### Ultimate: Ultimate Name
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> Value</span>
+    <span><strong>Power:</strong> Value</span>
+    <span><strong>Type:</strong> Ultimate, Tags</span>
+    <span><strong>Target:</strong> Self / Allies / Enemies</span>
+    <span><strong>Speed:</strong> Value</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Effect description.</p>
+  <p><strong>Conditional:</strong> Conditional text (if any).</p>
+</div>

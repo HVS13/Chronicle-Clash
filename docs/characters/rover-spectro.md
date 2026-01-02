@@ -1,0 +1,113 @@
+# Rover (Spectro)
+
+<div class="character-header">
+  <div class="character-image">
+    <img src="../../assets/characters/rover-spectro.webp" alt="Rover (Spectro) portrait" loading="lazy" decoding="async" />
+  </div>
+  <div class="character-details">
+    <div class="character-meta">
+      <p><strong>Name:</strong> Rover</p>
+      <p><strong>Version:</strong> Spectro</p>
+      <p><strong>Origin:</strong> Wuthering Waves</p>
+      <p><strong>Roles:</strong> <a class="cc-role-link" data-role="role-controller" href="#">Controller</a>, <a class="cc-role-link" data-role="role-support" href="#">Support</a></p>
+      <p><strong>Difficulty:</strong> Low</p>
+      <p><strong>Gameplan:</strong> Build Diminutive Sound with Strike/Aftertune, spend it on Resonating Slashes to stack Spectro Frazzle, and tax hands with Stagnate. Meter comes quickly, so lean on Echoing Orchestra for sustain.</p>
+    </div>
+  </div>
+</div>
+
+## Innates
+<div class="card-block">
+  <p class="card-block__title">World in a Grain of Sand</p>
+  <p>Each time any character inflicts Spectro Frazzle, inflict 1 additional Spectro Frazzle.</p>
+</div>
+
+## Status Effects
+
+<div class="cc-entry cc-entry--compact status-entry">
+  <p class="cc-entry__title">Diminutive Sound</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Unique.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Max Value</span> 2.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Used to enhance some cards.</p>
+</div>
+
+## Cards
+
+### Card 1: Strike
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 1 Energy</span>
+    <span><strong>Power:</strong> 8-12</span>
+    <span><strong>Type:</strong> Basic, Attack, Physical, Melee, Slash</span>
+    <span><strong>Target:</strong> 1 Enemy</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Deal Power damage. Gain 1 Diminutive Sound. Gain 1 Ultimate Meter.</p>
+</div>
+
+### Card 2: Defend
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 1 Energy</span>
+    <span><strong>Power:</strong> 8-12</span>
+    <span><strong>Type:</strong> Basic, Defense, Physical, Melee</span>
+    <span><strong>Target:</strong> 1 Ally</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Gain Power Shield. Gain 1 Ultimate Meter.</p>
+  <p><a class="cc-keyword-link" data-keyword="keyword-evade" href="#">Evade</a>.</p>
+</div>
+
+### Card 3: Resonating Slashes
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 1 Energy</span>
+    <span><strong>Power:</strong> 8-12</span>
+    <span><strong>Type:</strong> Technique, Attack, Physical, Melee, Slash, Multihit, Debuff</span>
+    <span><strong>Target:</strong> 1 Enemy</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Deal Power / 2 damage 2 times. On Hit: Spend 1 Diminutive Sound to inflict 2 <a class="cc-status-link" data-status="status-spectro-frazzle" href="#">Spectro Frazzle</a>.</p>
+</div>
+
+### Card 4: Aftertune
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 1 Energy</span>
+    <span><strong>Power:</strong> 8-12</span>
+    <span><strong>Type:</strong> Technique, Attack, Physical, Melee, Blunt</span>
+    <span><strong>Target:</strong> 1 Enemy</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Deal Power damage. Gain 1 Diminutive Sound.</p>
+</div>
+
+### Card 5: Instant
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 1 Energy</span>
+    <span><strong>Power:</strong> -</span>
+    <span><strong>Type:</strong> Technique, Special, Magical, Ranged, AoE, Debuff</span>
+    <span><strong>Target:</strong> All Enemies</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Inflict 2 <a class="cc-status-link" data-status="status-stagnate" href="#">Stagnate</a>.</p>
+</div>
+
+### Ultimate: Echoing Orchestra
+<div class="card-block">
+  <div class="card-block__meta">
+    <span><strong>Cost:</strong> 20 Ultimate Meter</span>
+    <span><strong>Power:</strong> 15-25</span>
+    <span><strong>Type:</strong> Ultimate, Attack, Magical, Ranged, AoE, Blunt, Recovery, Debuff</span>
+    <span><strong>Target:</strong> All Enemies</span>
+    <span><strong>Speed:</strong> Normal</span>
+  </div>
+  <p class="card-block__heading">Effect</p>
+  <p>Deal Power damage. Heal for Power / 2 HP. On Hit: Inflict 6 <a class="cc-status-link" data-status="status-spectro-frazzle" href="#">Spectro Frazzle</a>.</p>
+</div>

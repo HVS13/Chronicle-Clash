@@ -1,0 +1,203 @@
+# Status Effects
+
+This page explains what status effects are and how their values work.
+
+??? info "Explanation"
+    Status effects are conditions that can be applied to units on either side of a battle through the use of passives, skills, ultimates, and even other status effects.
+
+    A status effect can use up to two values to function, which will be called "modes" here for clarity:
+
+    - **Zero-value mode:** the value is always fixed at 1 and has no inherent effect on the status effect's strength.
+    - **Single-value mode:** one value is typically called Count, Stack, or Value.
+    - **Double-value mode:** two values (Potency + Count). Generally, Potency determines strength, while Count determines duration.
+
+    Trigger labels like "Turn Start," "Turn End," "On Gain," and "Allies' Card Played" describe when the effect happens. "On Gain" triggers immediately when the status is gained, even during Combat. "Allies' Card Played" triggers whenever any ally (including the user) plays a card.
+
+    "Next Turn Start" means the next time that unit reaches Turn Start, even if the status that created the trigger has expired. If an effect says "When this expires: At your next Turn Start, ...", it creates a delayed trigger that resolves at that next Turn Start.
+
+    In single-value or double-value modes, if one or more values reach 0, the status effect is removed from the unit. When multiple effects at the same timing point would consume and gain status values, apply all reductions or consumptions first, then apply gains or inflictions. If a single effect specifies its own order (example: "Take damage, then reduce Count"), follow that text.
+
+    Status effects also come with a few attributes:
+
+    - **Base Value:** the initial value on infliction if none is specified.
+    - **Max Value:** the maximum value (default 99).
+
+    Status effects also have a type: Positive, Negative, or Unique. Unique status effects are character-specific and are documented on the character page only, not in this reference.
+
+    Reapplying a status effect increases its Potency, Count, Stack, or Value up to its cap, following any mode-specific rules below.
+
+    For Potency + Count effects, "Inflict/Gain X" increases Potency by X; if the target has none, set Potency to X and Count to 1.
+
+    "Halve" means set the current value to half its current value, rounding down.
+
+??? info "Timing order"
+    When multiple status effects trigger at the same timing point (Turn Start, Turn End, etc.):
+
+    - Follow any explicit "then" order written on the effect itself.
+    - If there is no explicit order between effects, apply them in any order, but apply all reductions or consumptions before any gains or inflictions to the same status effect.
+    - After all effects apply, remove any status effect whose value reaches 0.
+    - If a specific effect contradicts this order, apply it as written.
+
+??? info "Power modifiers"
+    Strength and Weakened modify Attack Power. Dexterity and Frail modify Defense Power.
+
+    When both a positive and negative modifier apply, use net Potency (positive - negative).
+    Multiply the card's Power min and max by (1 + 0.10 x net Potency), then round down.
+    Power has no minimum clamp.
+
+??? info "Speed shift"
+    Speed modifiers use a step-shift system. Each Potency shifts Speed by 1 step.
+    Haste and Slow cancel step-for-step (example: Haste 2 and Slow 1 results in a net +1 step).
+    Net shift is capped at 2 steps total. Haste shifts Slow -> Normal -> Fast. Slow shifts Fast -> Normal -> Slow.
+
+## Reference
+
+Use the filter to quickly locate a mode, rule, or attribute.
+
+<div class="cc-filter">
+  <label class="cc-filter__label" for="status-filter">Filter status effects</label>
+  <input class="cc-filter__input" type="search" id="status-filter" placeholder="Type to filter..." autocomplete="off" spellcheck="false" />
+</div>
+
+### Negative
+
+<div class="cc-entry status-entry" id="status-bleed">
+  <p class="cc-entry__title">Bleed</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Allies' Card Played</span> Take <strong>Potency</strong> damage. Then increase <strong>Potency</strong> by <strong>Energy</strong> spent.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-burn">
+  <p class="cc-entry__title">Burn</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Allies' Card Played</span> Take <strong>Potency</strong> damage. Then reduce <strong>Count</strong> by <strong>Energy</strong> spent.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Take <strong>Potency</strong> damage. Then reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-frail">
+  <p class="cc-entry__title">Frail</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Reduce Defense Power by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-poison">
+  <p class="cc-entry__title">Poison</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Allies' Card Played</span> Increase <strong>Potency</strong> by <strong>Energy</strong> spent.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Take <strong>Potency</strong> damage. Then reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-slow">
+  <p class="cc-entry__title">Slow</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Reduce the card's Speed by <strong>Potency</strong> steps (Fast -> Normal -> Slow), capped at 2 steps.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-spectro-frazzle">
+  <p class="cc-entry__title">Spectro Frazzle</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Max Stack</span> 10.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Inflict damage equal to <strong>5 times Stack</strong>. Then reduce Stack by 1.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-strain">
+  <p class="cc-entry__title">Strain</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Increase the Energy cost of this character's cards by <strong>Potency</strong>.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-stagnate">
+  <p class="cc-entry__title">Stagnate</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Max Value</span> 10.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Instant</span> Increase the Energy cost of a random card in hand by 1 until that card is used. Repeat <strong>Value</strong> times. Expires.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-stun">
+  <p class="cc-entry__title">Stun</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Max Stack</span> 1.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn Start</span> Skip the turn.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Expires.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-weak">
+  <p class="cc-entry__title">Weak</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Reduce Attack Power by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-vulnerable">
+  <p class="cc-entry__title">Vulnerable</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Negative.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Increase damage taken by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+### Positive
+
+<div class="cc-entry status-entry" id="status-dexterity">
+  <p class="cc-entry__title">Dexterity</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Positive.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Increase Defense Power by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-focus">
+  <p class="cc-entry__title">Focus</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Positive.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Reduce the Energy cost of this character's cards by <strong>Potency</strong> (minimum 0).</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-fortified">
+  <p class="cc-entry__title">Fortified</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Positive.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Reduce damage taken by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-haste">
+  <p class="cc-entry__title">Haste</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Positive.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Increase the card's Speed by <strong>Potency</strong> steps (Slow -> Normal -> Fast), capped at 2 steps.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
+
+<div class="cc-entry status-entry" id="status-strength">
+  <p class="cc-entry__title">Strength</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Type</span> Positive.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Potency</span> Max 999.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Count</span> Max 99.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Effect</span> Increase Attack Power by 10% times Potency.</p>
+  <p class="cc-entry__meta"><span class="cc-pill">Turn End</span> Reduce <strong>Count</strong> by <strong>Halve</strong>.</p>
+</div>
